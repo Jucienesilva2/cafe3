@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Café Emunah</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+:root {
+    --cor-primaria:#bd7e2b; --cor-secundaria:#d4b183; --cor-escura:#311c14;
+    --cor-texto-claro:#f5f5f5; --cor-texto-escuro:#222;
+}
+body{font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;background-color:var(--cor-texto-claro);color:var(--cor-texto-escuro);margin:0;line-height:1.6;}
+.site-header{background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('imagem/graodecafe.jpeg');background-size:cover;background-position:center;color:var(--cor-texto-claro);height:50vh;display:flex;flex-direction:column;justify-content:space-between;padding:20px;}
+.navbar{background-color:transparent!important;padding:0;}
+.navbar-brand{color:var(--cor-texto-claro)!important;font-size:1.8rem;font-weight:700;text-shadow:1px 1px 4px rgba(0,0,0,0.7);}
+.nav-link{color:var(--cor-texto-claro)!important;font-weight:600;font-size:1.1rem;transition:color 0.3s ease;}
+.nav-link:hover{color:var(--cor-secundaria)!important;}
+.nav-item .nav-link{padding:0 15px;}
+.header-title{text-align:center;margin-bottom:2rem;}
+.header-title h1{font-size:3rem;font-weight:700;margin-bottom:0.5rem;}
+.header-title p{font-size:1.5rem;font-weight:400;}
+.container-fluid{padding:2rem;display:flex;flex-direction:column;gap:2rem;}
+.section-title{background-image:linear-gradient(to right,var(--cor-primaria),var(--cor-secundaria));color:white;padding:20px;text-align:center;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,0.2);font-size:1.8rem;font-weight:700;}
+.content-block{padding:20px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+.negocios{background-color:#f9f9f9;padding:2rem;text-align:center;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+.negocios h1{font-size:2rem;color:var(--cor-escura);}
+.pedido-box{background-color:white;padding:30px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.1);max-width:600px;margin:20px auto;}
+.form-row{display:flex;flex-wrap:wrap;gap:15px;margin-bottom:15px;}
+.form-row>div{flex:1;min-width:200px;}
+.total-detalhes{font-size:0.9em;color:#666;margin-top:10px;}
+footer{background-color:var(--cor-escura);color:white;text-align:center;padding:20px;font-size:0.9rem;border-top:5px solid var(--cor-primaria);}
+.intro-section{display:flex;flex-direction:column;gap:20px;}
+.intro-text{padding:20px;}
+.intro-image{background-image:url('imagem/peneirafolha.jpg');background-size:cover;background-position:center;min-height:250px;border-radius:8px;}
+@media(min-width:768px){.intro-section{flex-direction:row;align-items:center;}.intro-text{flex:2;background-color:var(--cor-escura);color:white;padding:30px;}.intro-image{flex:1;}}
+.service-grid{display:grid;gap:15px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
+.service-item{position:relative;min-height:250px;border-radius:8px;overflow:hidden;box-shadow:0 4px 8px rgba(0,0,0,0.2);transition:transform 0.3s ease;}
+.service-item:hover{transform:translateY(-5px);}
+.service-item img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;}
+.service-item .overlay{position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.5);display:flex;justify-content:center;align-items:center;opacity:0;transition:opacity 0.3s ease;}
+.service-item:hover .overlay{opacity:1;}
+.service-item .overlay-text{color:white;font-size:1.5rem;font-weight:bold;text-align:center;}
+.about-us-section{display:flex;flex-direction:column;gap:20px;}
+.about-text{background-color:white;padding:20px;}
+.about-image{background-image:url('imagem/ciley1.jpg');background-size:cover;background-position:center;min-height:250px;border-radius:8px;}
+@media(min-width:768px){.about-us-section{flex-direction:row;align-items:center;}.about-text{flex:2;}.about-image{flex:1;}}
+.team-section{text-align:center;padding:2rem;background-color:#e9ecef;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+.team-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));justify-items:center;}
+.team-member{display:flex;flex-direction:column;align-items:center;text-align:center;}
+.member-photo{width:150px;height:150px;border-radius:50%;background-size:cover;background-position:center;border:5px solid var(--cor-primaria);margin-bottom:10px;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+<nav class="navbar navbar-expand-lg">
+<div class="container-fluid">
+<a class="navbar-brand" href="#">CAFÉ EMUNAH</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="fas fa-bars text-light"></span></button>
+<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+<ul class="navbar-nav">
+<li class="nav-item"><a class="nav-link active" href="#home">Início</a></li>
+<li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+<li class="nav-item"><a class="nav-link" href="#sobrenos">Sobre Nós</a></li>
+<li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="header-title">
+<h1>O Café que Conecta o Brasil ao Mundo</h1>
+<p>Os melhores cafés com a qualidade que você merece</p>
+</div>
+</header>
+
+<div class="container-fluid" id="home">
+
+<!-- Intro -->
+<section class="intro-section">
+<div class="intro-text">
+<h2>Bem-vindos ao Café EMUNAH</h2>
+<p>Nosso foco é buscar as melhores opções de negócios no Brasil para a exportação de cafés de alta qualidade. Acompanhamos todo o processo até que o café chegue ao seu destino.</p>
+</div>
+<div class="intro-image"></div>
+</section>
+
+<!-- Serviços -->
+<section class="content-block" id="servicos">
+<h2 class="section-title">Serviços que Vão de Ponta a Ponta</h2>
+<div class="service-grid mt-4">
+<div class="service-item"><img src="imagem/plantacao.png" alt=""><div class="overlay"><span class="overlay-text">Plantação e Colheita</span></div></div>
+<div class="service-item"><img src="imagem/lavoura.png" alt=""><div class="overlay"><span class="overlay-text">Processamento da Lavoura</span></div></div>
+<div class="service-item"><img src="imagem/cafe_no_saco.png" alt=""><div class="overlay"><span class="overlay-text">Armazenamento</span></div></div>
+<div class="service-item"><img src="imagem/cafe dentro da carreta.png" alt=""><div class="overlay"><span class="overlay-text">Transporte</span></div></div>
+<div class="service-item"><img src="imagem/emunah escuro.png" alt=""><div class="overlay"><span class="overlay-text">Embalagem</span></div></div>
+<div class="service-item"><img src="imagem/podecafeadesivado.jpg" alt=""><div class="overlay"><span class="overlay-text">Entrega e Distribuição</span></div></div>
+</div>
+</section>
+
+<!-- Vamos Fazer Negócios -->
+<section class="negocios" id="contato">
+<h1>Vamos Fazer Negócios</h1>
+<p>Escolha o seu café preferido e faça seu pedido agora mesmo:</p>
+<div class="pedido-box">
+<h2>Faça seu Pedido</h2>
+<form id="pedidoForm">
+<div class="form-row">
+<div>
+<label for="produto" class="form-label">Produto</label>
+<select id="produto" class="form-select" required>
+<option value="" disabled selected>Selecione</option>
+<option value="clara250">Café Gourmet Torra Clara 250g</option>
+<option value="escura250">Café Torra Escura 250g</option>
+<option value="escura500">Café Torra Escura 500g</option>
+</select>
+</div>
+<div>
+<label for="quantidade" class="form-label">Quantidade</label>
+<input type="number" id="quantidade" class="form-control" min="1" value="1" required>
+</div>
+</div>
+<div class="form-row">
+<div>
+<label for="cep" class="form-label">CEP</label>
+<input type="text" id="cep" class="form-control" placeholder="Digite o CEP" required>
+</div>
+<div>
+<label for="cupom" class="form-label">Cupom de Desconto</label>
+<input type="text" id="cupom" class="form-control" placeholder="Digite o cupom">
+</div>
+</div>
+<div id="total" class="text-start mt-3 fs-5 fw-bold">Total: R$ 0,00</div>
+<button type="submit" class="btn btn-success w-100 mt-4">Enviar Pedido via WhatsApp</button>
+</form>
+<h4 class="mt-3">Pedidos Salvos Localmente:</h4>
+<ul id="listaPedidos"></ul>
+</div>
+</section>
+
+<!-- Sobre Nós -->
+<section class="about-us-section" id="sobrenos">
+<div class="about-text">
+<h2>Sobre Nós</h2>
+<p>Fundada em 2024, a Café Emunah oferece soluções completas para exportação de cafés. Nossa equipe busca os melhores preços junto aos exportadores, garantindo qualidade do início ao fim.</p>
+</div>
+<div class="about-image"></div>
+</section>
+
+<!-- Equipe -->
+<section class="team-section">
+<h2 class="section-title mb-4">Nossa Equipe</h2>
+<div class="team-grid">
+<div class="team-member"><div class="member-photo" style="background-image:url('imagem/ciley.jpg');"></div><p><strong>Glauciley, 33 anos</strong><br>Fundador da Emunah</p></div>
+<div class="team-member"><div class="member-photo" style="background-image:url('imagem/gal.jpg');"></div><p><strong>Glaucilene, 36 anos</strong><br>Pedagoga, Acionista e Rep. de Vendas</p></div>
+<div class="team-member"><div class="member-photo" style="background-image:url('imagem/ju.jpg');"></div><p><strong>Juciene, 32 anos</strong><br>Acionista e Rep. de Vendas</p></div>
+<div class="team-member"><div class="member-photo" style="background-image:url('imagem/lu.jpg');"></div><p><strong>Luana, 29 anos</strong><br>Contadora, Acionista e Rep. de Vendas</p></div>
+</div>
+</section>
+
+</div>
+<footer>
+&copy; 2025 Café Emunah. Todos os direitos reservados.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const PRECOS={clara250:20.00,escura250:22.00,escura500:40.00};
+const NOMES={clara250:"Café Gourmet Torra Clara 250g",escura250:"Café Torra Escura 250g",escura500:"Café Torra Escura 500g"};
+const elProduto=document.getElementById("produto");
+const elQuantidade=document.getElementById("quantidade");
+const elCep=document.getElementById("cep");
+const elCupom=document.getElementById("cupom");
+const elTotal=document.getElementById("total");
+const form=document.getElementById("pedidoForm");
+const listaPedidos=document.getElementById("listaPedidos");
+
+function valorFrete(){const cep=(elCep.value||"").replace(/\D/g,"");if(cep.startsWith("30"))return 10;if(cep.startsWith("40"))return 15;if(cep)return 20;return 0;}
+function calcularTotal(){const produto=elProduto.value;const quantidade=parseInt(elQuantidade.value)||0;let total=(PRECOS[produto]||0)*quantidade+valorFrete();elTotal.textContent=`Total: R$ ${total.toFixed(2)}`;}
+elProduto.addEventListener("change",calcularTotal);
+elQuantidade.addEventListener("input",calcularTotal);
+elCep.addEventListener("input",calcularTotal);
+
+function carregarPedidos(){listaPedidos.innerHTML="";const pedidos=JSON.parse(localStorage.getItem("pedidos")||"[]");pedidos.forEach(p=>{const li=document.createElement("li");li.textContent=`${NOMES[p.produto]} - ${p.quantidade} unidades - CEP: ${p.cep} - Total: R$ ${p.total}`;listaPedidos.appendChild(li);});}
+carregarPedidos();
+
+form.addEventListener("submit",function(e){
+e.preventDefault();
+const pedido={produto:elProduto.value,quantidade:elQuantidade.value,cep:elCep.value,cupom:elCupom.value||"",total:elTotal.textContent.replace("Total: R$ ","")};
+const pedidos=JSON.parse(localStorage.getItem("pedidos")||"[]");
+pedidos.push(pedido);localStorage.setItem("pedidos",JSON.stringify(pedidos));
+carregarPedidos();
+const mensagem=`Olá! Quero fazer o pedido:\nProduto: ${NOMES[pedido.produto]}\nQuantidade: ${pedido.quantidade}\nCEP: ${pedido.cep}\nCupom: ${pedido.cupom}\nTotal: R$ ${pedido.total}`;
+window.open(`https://wa.me/5599999999999?text=${encodeURIComponent(mensagem)}`,"_blank");
+form.reset();calcularTotal();
+});
+</script>
+
+</body>
+</html>
